@@ -1,0 +1,123 @@
+#logo {
+    height: 80px;
+    padding: 10px 10px 10px 100px
+}
+
+@media (max-width:970px) {
+    #logo {
+        display: flex;
+        margin: 0 auto;
+        padding: 10px
+    }
+}
+
+.header,.header ul {
+    background-color: #fff
+}
+
+.header {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  height: 85px;
+  box-shadow: 1px 1px 30px 0 rgba(0, 0, 0, 0.3);
+  ul {
+    overflow: hidden;
+    margin: 0;
+    padding-top: 0;
+    list-style: none;
+  }
+
+  li a {
+      display: block;
+      padding: 15px;
+      text-align: center;
+      .menu-btn:hover,.header li a:hover {
+          color: $primaryColor;
+      }
+  }
+  .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+  .menu-icon {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 35px 20px;
+    cursor: pointer;
+    user-select: none;
+    .navicon {
+      position: relative;
+      display: block;
+      width: 18px;
+      height: 2px;
+      transition: background .2s ease-out;
+      background: #333;
+      &:before, &:after {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        content: '';
+        transition: all .2s ease-out;
+        background: #333;
+      }
+      &:before {
+        top: 5px;
+      }
+      &:after {
+        top: -5px;
+      }
+    }
+  }
+  .menu-btn {
+    display: none;
+    &:checked ~ {
+      .menu {
+        max-height: 300px;
+      }
+      .menu-icon {
+        .navicon {
+          background: 0 0;
+          &:before {
+            transform: rotate(-45deg);
+          }
+          &:after {
+            transform: rotate(45deg);
+          }
+        }
+        &:not(.steps) .navicon {
+          &:after, &:before {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 970px) {
+  .header {
+    ul {
+      margin-right: 100px;
+    }
+    li {
+      float: left;
+      a {
+        padding: 34px 30px 29px;
+      }
+    }
+    .menu {
+      float: right;
+      clear: none;
+      max-height: none;
+    }
+    .menu-icon {
+      display: none;
+    }
+  }
+}
