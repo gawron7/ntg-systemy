@@ -25,62 +25,60 @@ a {
 hr {
   width: 50px;
   height: 3px;
-  margin: 20px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  margin-bottom: 20px;
   border: 0;
-  background-color: #7886d4;
+  background-color: #8c9eff;
 }
 
-.container, .main-container, .item, .circle {
+/* Containers */
+.card,
+.card__eleme,
+.item,
+.circle {
   display: flex;
   align-items: center;
 }
 
-.main-container {
+/* Cards */
+.card {
   flex-direction: column;
   padding: 75px;
 }
 
-.main-container h1 {
+.card__header {
   text-align: center;
   font: 30px 'Noto Sans', sans-serif;
+  margin-bottom: 20px;
 }
 
-.main-container p {
-  color: #6c757d;
-}
-
-.container {
+.card__eleme {
   width: 100%;
   text-align: left;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.container p {
+.card__text {
+  color: #6c757d;
+}
+
+.card__text--box {
   max-width: 400px;
   margin-bottom: 20px;
 }
 
 @media (max-width: 950px) {
-  .container p {
+  .card__text--box {
     text-align: center;
   }
 }
 
-#logo {
-  height: 80px;
-  padding: 10px 10px 10px 100px;
-}
-
-@media (max-width: 970px) {
-  #logo {
-    display: flex;
-    margin: 0 auto;
-    padding: 10px;
-  }
-}
-
-.header, .header ul {
+/* Header */
+/* Maybe later i will try conwert to BEM */
+.header,
+.header__menu {
   background-color: #fff;
 }
 
@@ -93,30 +91,31 @@ hr {
   box-shadow: 1px 1px 30px 0 rgba(0, 0, 0, 0.3);
 }
 
-.header ul {
+.header__logo {
+  padding: 10px 10px 10px 100px;
+}
+
+.header__menu {
   overflow: hidden;
   margin: 0;
   padding-top: 0;
   list-style: none;
-}
-
-.header li a {
-  display: block;
-  padding: 15px;
-  text-align: center;
-}
-
-.header li a .menu-btn:hover, .header li a .header li a:hover {
-  color: #7886d4;
-}
-
-.header .menu {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
 }
 
-.header .menu-icon {
+.header__btn {
+  display: block;
+  padding: 15px;
+  text-align: center;
+}
+
+.header__btn .header_hamb:hover, .header__btn .header li a:hover {
+  color: #8c9eff;
+}
+
+.header__icon {
   position: absolute;
   top: 0;
   display: inline-block;
@@ -126,7 +125,7 @@ hr {
   user-select: none;
 }
 
-.header .menu-icon .navicon {
+.header__navicon {
   position: relative;
   display: block;
   width: 18px;
@@ -135,7 +134,7 @@ hr {
   background: #333;
 }
 
-.header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
+.header__navicon:before, .header__navicon:after {
   position: absolute;
   display: block;
   width: 100%;
@@ -145,59 +144,66 @@ hr {
   background: #333;
 }
 
-.header .menu-icon .navicon:before {
+.header__navicon:before {
   top: 5px;
 }
 
-.header .menu-icon .navicon:after {
+.header__navicon:after {
   top: -5px;
 }
 
-.header .menu-btn {
+.header__hamb {
   display: none;
 }
 
-.header .menu-btn:checked ~ .menu {
+.header__hamb:checked ~ .header__menu {
   max-height: 300px;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon {
+.header__hamb:checked ~ .header__icon .header__navicon {
   background: 0 0;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
+.header__hamb:checked ~ .header__icon .header__navicon:before {
   transform: rotate(-45deg);
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
+.header__hamb:checked ~ .header__icon .header__navicon:after {
   transform: rotate(45deg);
 }
 
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after, .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+.header__hamb:checked ~ .header__icon:not(.steps) .header__navicon:after, .header__hamb:checked ~ .header__icon:not(.steps) .header__navicon:before {
   top: 0;
 }
 
 @media (min-width: 970px) {
-  .header ul {
-    margin-right: 100px;
-  }
-  .header li {
+  .header__float {
     float: left;
   }
-  .header li a {
+  .header__btn {
     padding: 34px 30px 29px;
   }
-  .header .menu {
+  .header__menu {
     float: right;
     clear: none;
     max-height: none;
+    margin-right: 100px;
   }
-  .header .menu-icon {
+  .header__icon {
     display: none;
   }
 }
 
-#banner {
+@media (max-width: 970px) {
+  .header__logo {
+    display: flex;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+}
+
+/* Banner */
+.banner {
   margin-top: 85px;
   color: #fff;
   position: relative;
@@ -206,13 +212,14 @@ hr {
   justify-content: center;
 }
 
-#banner .background-image {
+.banner__image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: #414a4f;
+  /* Hiding the banner picture under the inscriptions */
   z-index: -1;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -220,7 +227,7 @@ hr {
   background-size: cover;
 }
 
-#banner .background-image:after {
+.banner__image:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -231,22 +238,23 @@ hr {
   opacity: 0.7;
 }
 
-#banner h1 {
+.banner__header {
   font: 50px 'Noto Sans',sans-serif;
   margin-bottom: 15px;
 }
 
-#banner h2 {
+.banner__header2 {
   font: 20px 'Noto Sans',sans-serif;
   margin-bottom: 40px;
 }
 
-#banner .button {
+.banner__btn {
   padding: 13px 34px;
   border-radius: 10rem;
-  background-color: #7886d4;
+  background-color: #8c9eff;
 }
 
+/* Offer */
 .item {
   flex-direction: column;
   width: 250px;
@@ -254,7 +262,7 @@ hr {
   text-align: center;
 }
 
-.item h2 {
+.item__text {
   margin-top: 20px;
   color: #444;
 }
@@ -265,53 +273,57 @@ hr {
   margin-bottom: 30px;
   color: #fff;
   border-radius: 50%;
-  background-color: #7886d4;
+  background-color: #8c9eff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   justify-content: center;
 }
 
-.circle svg {
+.circle__fill {
+  width: 30pt;
+  height: 30pt;
   fill: currentColor;
 }
 
-#description {
+/* Description */
+.description {
   background-color: #f5f5f5;
 }
 
-#description p {
-  line-height: 2;
-}
-
-#description img {
+.description__img {
   width: 100%;
   max-width: 400px;
   height: auto;
 }
 
-#realizations {
+.description--space {
+  line-height: 2;
+}
+
+/* Realizations */
+.realizations {
   padding: 75px 0;
 }
 
-.gallery {
+.realizations__gallery {
   overflow: hidden;
   width: 350px;
   height: 300px;
   flex: auto;
 }
 
-.gallery img {
+.realizations__image {
   width: 100%;
   height: auto;
   min-height: 300px;
 }
 
 @media (max-width: 700px) {
-  .gallery {
+  .realizations__gallery {
     width: 100%;
   }
 }
 
-#footer a {
-  height: 48px;
-  font-size: 20px;
+/* Footer */
+.footer__icon {
+  width: 15px;
 }

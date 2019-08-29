@@ -1,18 +1,6 @@
-#logo {
-    height: 80px;
-    padding: 10px 10px 10px 100px
-}
-
-@media (max-width:970px) {
-    #logo {
-        display: flex;
-        margin: 0 auto;
-        padding: 10px
-    }
-}
-
-.header,.header ul {
-    background-color: #fff
+.header,
+.header__menu {
+  background-color: #fff;
 }
 
 .header {
@@ -22,27 +10,29 @@
   width: 100%;
   height: 85px;
   box-shadow: 1px 1px 30px 0 rgba(0, 0, 0, 0.3);
-  ul {
+  &__logo {
+    padding: 10px 10px 10px 100px;
+  }
+  &__menu {
     overflow: hidden;
     margin: 0;
     padding-top: 0;
     list-style: none;
-  }
-
-  li a {
-      display: block;
-      padding: 15px;
-      text-align: center;
-      .menu-btn:hover,.header li a:hover {
-          color: $primaryColor;
-      }
-  }
-  .menu {
     clear: both;
     max-height: 0;
     transition: max-height 0.2s ease-out;
   }
-  .menu-icon {
+
+  &__btn {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    .header_hamb:hover,.header li a:hover {
+        color: $primaryColor;
+    }
+  }
+
+  &__icon {
     position: absolute;
     top: 0;
     display: inline-block;
@@ -50,38 +40,42 @@
     padding: 35px 20px;
     cursor: pointer;
     user-select: none;
-    .navicon {
-      position: relative;
+  }
+
+  &__navicon {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 2px;
+    transition: background .2s ease-out;
+    background: #333;
+    &:before, &:after {
+      position: absolute;
       display: block;
-      width: 18px;
-      height: 2px;
-      transition: background .2s ease-out;
+      width: 100%;
+      height: 100%;
+      content: '';
+      transition: all .2s ease-out;
       background: #333;
-      &:before, &:after {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        content: '';
-        transition: all .2s ease-out;
-        background: #333;
-      }
-      &:before {
-        top: 5px;
-      }
-      &:after {
-        top: -5px;
-      }
+    }
+
+    &:before {
+      top: 5px;
+    }
+
+    &:after {
+      top: -5px;
     }
   }
-  .menu-btn {
+
+  &__hamb {
     display: none;
     &:checked ~ {
-      .menu {
+      .header__menu {
         max-height: 300px;
       }
-      .menu-icon {
-        .navicon {
+      .header__icon {
+        .header__navicon {
           background: 0 0;
           &:before {
             transform: rotate(-45deg);
@@ -90,7 +84,7 @@
             transform: rotate(45deg);
           }
         }
-        &:not(.steps) .navicon {
+        &:not(.steps) .header__navicon {
           &:after, &:before {
             top: 0;
           }
@@ -102,22 +96,30 @@
 
 @media (min-width: 970px) {
   .header {
-    ul {
-      margin-right: 100px;
-    }
-    li {
+    &__float {
       float: left;
-      a {
-        padding: 34px 30px 29px;
-      }
     }
-    .menu {
+
+    &__btn {
+      padding: 34px 30px 29px;
+    }
+
+    &__menu {
       float: right;
       clear: none;
       max-height: none;
+      margin-right: 100px;
     }
-    .menu-icon {
+    &__icon {
       display: none;
     }
   }
+}
+
+@media (max-width:970px) {
+    .header__logo {
+        display: flex;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
 }

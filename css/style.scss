@@ -1,84 +1,97 @@
-$primaryColor : #7886d4;
+$primaryColor: #8c9eff;//#7886d4;
 
 @font-face {
     font-family: 'Noto Sans',sans-serif;
     font-weight: 400;
     font-style: normal;
-    src: url(fonts/NotoSans-Regular.ttf) format('ttf')
+    src: url(fonts/NotoSans-Regular.ttf) format('ttf');
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 html {
     font-family: 'Noto Sans', sans-serif;
-    color: #555
+    color: #555;
 }
 
 a {
     cursor: pointer;
     text-decoration: none;
-    color: inherit
+    color: inherit;
 }
 
 hr {
     width: 50px;
     height: 3px;
-    margin: 20px;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    margin-bottom: 20px;
     border: 0;
     background-color: $primaryColor;
 }
 
-.container, .main-container, .item, .circle {
+/* Containers */
+
+.card,
+.card__eleme,
+.item,
+.circle {
     display: flex;
-    align-items: center
+    align-items: center;
 }
 
-.main-container {
-    flex-direction: column;
-    padding: 75px;
+/* Cards */
 
-    h1 {
-        text-align: center;
-        font: 30px 'Noto Sans', sans-serif;
-    }
+.card {
+  flex-direction: column;
+  padding: 75px;
+  &__header {
+    text-align: center;
+    font: 30px 'Noto Sans', sans-serif;
+    margin-bottom: 20px;
+  }
 
-    p {
-      color: #6c757d;
-    }
-}
-
-.container {
+  &__eleme {
     width: 100%;
     text-align: left;
     flex-flow: row wrap;
     justify-content: space-around;
+  }
 
-    p {
+  &__text {
+    color: #6c757d;
+    &--box {
       max-width: 400px;
       margin-bottom: 20px;
     }
+  }
 }
 
 @media (max-width:950px) {
-    .container p {
-        text-align: center
+    .card__text--box {
+        text-align: center;
     }
 }
 
+/* Header */
+
+/* Maybe later i will try conwert to BEM */
 @import "./header";
 
-#banner {
+/* Banner */
+
+.banner {
   margin-top: 85px;
   color: #fff;
   position: relative;
   min-height: 75vh;
   text-align: center;
   justify-content: center;
-  .background-image {
+  &__image {
     position: absolute;
     top: 0;
     left: 0;
@@ -95,34 +108,37 @@ hr {
       content: '';
       opacity: 0.7;
     }
+    /* Hiding the banner picture under the inscriptions */
     z-index: -1;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
   }
-  h1 {
+  &__header {
     font: 50px 'Noto Sans',sans-serif;
     margin-bottom: 15px;
   }
-  h2 {
+  &__header2 {
     font: 20px 'Noto Sans',sans-serif;
     margin-bottom: 40px;
   }
 
-  .button {
+  &__btn {
       padding: 13px 34px;
       border-radius: 10rem;
       background-color: $primaryColor;
   }
 }
 
+/* Offer */
+
 .item {
     flex-direction: column;
     width: 250px;
     margin-top: 50px;
     text-align: center;
-    h2 {
+    &__text {
       margin-top: 20px;
       color: #444;
     }
@@ -137,46 +153,54 @@ hr {
     background-color: $primaryColor;
     box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
     justify-content: center;
-    svg {
+    &__fill {
+      width: 30pt;
+      height: 30pt;
       fill: currentColor;
     }
 }
 
-#description {
+/* Description */
+
+.description {
   background-color: #f5f5f5;
-  p {
-    line-height: 2;
-  }
-  img {
+  &__img {
     width: 100%;
     max-width: 400px;
     height: auto;
   }
-}
 
-#realizations {
-    padding: 75px 0;
-}
-
-.gallery {
-  overflow: hidden;
-  width: 350px;
-  height: 300px;
-  flex: auto;
-  img {
-    width: 100%;
-    height: auto;
-    min-height: 300px;
+  &--space {
+    line-height: 2;
   }
 }
 
-@media (max-width:700px) {
-    .gallery {
-        width: 100%
+/* Realizations */
+
+.realizations {
+    padding: 75px 0;
+    &__gallery {
+      overflow: hidden;
+      width: 350px;
+      height: 300px;
+      flex: auto;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
     }
 }
 
-#footer a {
-  height: 48px;
-  font-size: 20px;
+@media (max-width:700px) {
+    .realizations__gallery {
+        width: 100%;
+    }
+}
+
+/* Footer */
+
+.footer__icon {
+  width: 15px;
 }
