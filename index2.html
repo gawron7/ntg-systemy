@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html class="no-js" lang="pl">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
   <meta name="description" content="">
   <title>ntg-systemy</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.remove("no-js");</script>
 </head>
 
 <body>
@@ -16,22 +17,22 @@
   	<input class="header__hamb" type="checkbox" id="header__hamb">
   	<label class="header__icon" for="header__hamb"><span class="header__navicon"></span></label>
   	<ul class="header__menu">
-   		<li class="header__float"><a class="header__btn" onclick="$('.banner').animatescroll({padding:+84});">Główna</a></li>
-      <li class="header__float"><a class="header__btn" onclick="$('.offer').animatescroll({padding:+84});">Oferta</a></li>
-    	<li class="header__float"><a class="header__btn" onclick="$('.description').animatescroll({padding:+84});">O firmie</a></li>
-    	<li class="header__float"><a class="header__btn" onclick="$('.realizations').animatescroll({padding:+84});">Realizacje</a></li>
-    	<li class="header__float"><a class="header__btn" onclick="$('.footer').animatescroll({padding:-84});">Kontakt</a></li>
+   		<li class="header__float"><a class="header__btn" href="#banner" onclick="$('.banner').animatescroll({padding:+84});">Główna</a></li>
+      <li class="header__float"><a class="header__btn" href="#offer" onclick="$('.offer').animatescroll({padding:+84});">Oferta</a></li>
+    	<li class="header__float"><a class="header__btn" href="#description" onclick="$('.description').animatescroll({padding:+84});">O firmie</a></li>
+    	<li class="header__float"><a class="header__btn" href="#realizations" onclick="$('.realizations').animatescroll({padding:+84});">Realizacje</a></li>
+    	<li class="header__float"><a class="header__btn" href="#footer"onclick="$('.footer').animatescroll({padding:-84});">Kontakt</a></li>
   	</ul>
   </header>
 
-	<section class="banner card">
-		<div class="banner__image" style="background-image: url(img/rast_129odbicie.jpg);"></div>
+	<section id="banner" class="banner card">
+		<div class="banner__image"></div>
 		<h1 class="banner__header">Usługi budowlane</h1>
     <h2 class="banner__header2">Nowoczesne systemy aluminiowe</h2>
     <a class="banner__btn" onclick="$('.offer').animatescroll({padding:+84});">Zobacz wiecej</a>
 	</section>
 
-  <section class="offer card">
+  <section id="offer" class="offer card">
     <h1 class="card__header">Nasza Oferta</h1>
     <hr>
     <div class="card__eleme">
@@ -93,42 +94,63 @@
     <h2>Doradztwo techniczne</h2>
   </div>-->
 
-	<section class="description card">
+	<section id="description" class="description card">
 		<h1 class="card__header">O firmie</h1>
 		<hr>
 		<div class="card__eleme">
 			<p class="card__text--box description--space">Nasza firma specjalizuje się w budowie domów i obiektów w różnej konstrukcji przy wykorzystaniu materiałów najwyższej jakości i zachowaniu atrakcyjnej ceny.
         Prowadzimy kompletną obsługę inwestycji, w zależności od potrzeb klienta "pod klucz" lub stan surowy zamknięty . Pomagamy w wykonaniu projektu indywidualnego.</p>
-    <img class="description__img js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/5d110c586385b.png" alt="budownik">
+    <img class="description__img lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/img/builder.png" data-srcset="img/builder.png" alt="budownik">
+    <noscript>
+      <img class="description__img" src="img/builder.png" alt="budownik">
+    </noscript>
 		</div>
 	</section>
 
-	<section class="realizations card">
+	<section id="realizations" class="realizations card">
     <h1 class="card__header">Realizacje</h1>
     <hr>
       <div class="card__eleme">
   			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/Usługi_budowlane.jpg" alt="obrazek">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/3.svg"  data-srcset="/img/3.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
-  			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/Realizacja_inwestycji.jpg" alt="obrazek">
+        <div class="realizations__gallery">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/4.svg"  data-srcset="/img/4.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
-  			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/Wykończenia_wnętrz.jpg" alt="obrazek">
+        <div class="realizations__gallery">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/5.svg"  data-srcset="/img/5.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
-  			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/4.jpg" alt="obrazek">
+        <div class="realizations__gallery">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/6.svg"  data-srcset="/img/6.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
-  			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/5.jpg" alt="obrazek">
+        <div class="realizations__gallery">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/7.svg"  data-srcset="/img/7.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
-  			<div class="realizations__gallery">
-          <img class="realizations__image js-lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/6.jpg" alt="obrazek">
+        <div class="realizations__gallery">
+          <img class="realizations__image lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="img/9.svg"  data-srcset="/img/9.jpg" alt="obrazek">
+          <noscript>
+            <img class="realizations__image" src="img/6.jpg" alt="obrazek">
+          </noscript>
   			</div>
       </div>
 	</section>
 
-  <footer class="footer card">
+  <footer id="footer" class="footer card">
     <h1 class="card__header">Skontaktuj sie z nami!</h1>
       <hr>
           <a class="card_text--box" href="tel:+48 577 745 007"><svg class="footer__icon" enable-background="new 0 0 473.806 473.806" version="1.1" viewBox="0 0 473.806 473.806" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -148,26 +170,43 @@
   </footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" async></script>
   <script async>
-  function lazyLoad(){
-     $('.js-lazy').each(function(){
-         if ($(this).offset().top < window.innerHeight + window.pageYOffset + 300) {
-             $(this).attr('src', $(this).data('src'));
-             $(this).removeClass('js-lazy');
-         }
-     })
- };
+  document.addEventListener("DOMContentLoaded", function() {
+    let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    let active = false;
 
-   var eventTimeout;
-     var eventThrottler = function () {
-        if ( !eventTimeout ) {
-           eventTimeout = setTimeout(function() {
-              eventTimeout = null;
-              lazyLoad();
-        }, 1000);
-     }
-  };
-  $(document).on('scroll', function() {
-        eventThrottler();
+    const lazyLoad = function() {
+      if (active === false) {
+        active = true;
+
+        setTimeout(function() {
+          lazyImages.forEach(function(lazyImage) {
+
+            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight+500 && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.srcset = lazyImage.dataset.srcset;
+              lazyImage.classList.remove("lazy");
+
+              lazyImages = lazyImages.filter(function(image) {
+                return image !== lazyImage;
+
+              });
+
+              if (lazyImages.length === 0) {
+                document.removeEventListener("scroll", lazyLoad);
+                window.removeEventListener("resize", lazyLoad);
+                window.removeEventListener("orientationchange", lazyLoad);
+              }
+
+            }
+          });
+
+          active = false;
+        }, 200);
+      }
+    };
+    document.addEventListener("scroll", lazyLoad);
+    window.addEventListener("resize", lazyLoad);
+    window.addEventListener("orientationchange", lazyLoad);
   });
  </script>
 	<script src="js/animatescroll.min.js" async></script>

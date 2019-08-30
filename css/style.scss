@@ -34,6 +34,12 @@ hr {
     background-color: $primaryColor;
 }
 
+.no-js .lazy {
+  display: none;
+}
+
+
+
 /* Containers */
 
 .card,
@@ -98,6 +104,7 @@ hr {
     width: 100%;
     height: 100%;
     background-color: #414a4f;
+    background-image: url("../img/rast_129odbicie.jpg");
     &:after {
       position: absolute;
       top: 0;
