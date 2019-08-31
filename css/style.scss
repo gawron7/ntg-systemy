@@ -1,4 +1,4 @@
-$primaryColor: #8c9eff;//#7886d4;
+$primaryColor: #7886d4;//#8c9eff;
 
 @font-face {
     font-family: 'Noto Sans',sans-serif;
@@ -66,6 +66,9 @@ hr {
     text-align: left;
     flex-flow: row wrap;
     justify-content: space-around;
+    &--flexStart {
+      align-items: flex-start;
+    }
   }
 
   &__text {
@@ -140,6 +143,11 @@ hr {
 
 /* Offer */
 
+.offer {
+  display: flex;
+  align-items: fl
+}
+
 .item {
     flex-direction: column;
     width: 250px;
@@ -173,7 +181,7 @@ hr {
   background-color: #f5f5f5;
   &__img {
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     height: auto;
   }
 
@@ -209,5 +217,5 @@ hr {
 /* Footer */
 
 .footer__icon {
-  width: 15px;
+  width: 20px;
 }
