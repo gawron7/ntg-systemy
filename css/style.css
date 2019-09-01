@@ -117,6 +117,7 @@ hr {
 .header__float {
   float: left;
   height: 100%;
+  padding: 15px 30px 0;
 }
 
 .header__float:hover {
@@ -125,10 +126,37 @@ hr {
 
 .header__btn {
   display: flex;
-  padding: 15px 30px;
+  padding-bottom: 15px;
   align-items: center;
   text-align: center;
   height: 100%;
+  border-bottom: 3px solid #fff;
+  color: #9e9e9e;
+  transition: 0.3s;
+}
+
+.header__btn:hover {
+  color: #555;
+}
+
+.header__btn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  height: 10px;
+  background-color: #000;
+}
+
+.header:active::before {
+  background-color: #000;
+}
+
+.header:hover::before {
+  width: 100%;
+  transform-origin: left top;
+  transform: scale(1, 1);
 }
 
 .header__icon {
@@ -190,6 +218,11 @@ hr {
 
 .header__hamb:checked ~ .header__icon:not(.steps) .header__navicon:after, .header__hamb:checked ~ .header__icon:not(.steps) .header__navicon:before {
   top: 0;
+}
+
+.current {
+  border-bottom: 3px solid #7886d4;
+  color: #555;
 }
 
 @media (max-width: 970px) {

@@ -28,6 +28,7 @@
   &__float {
     float: left;
     height: 100%;
+    padding: 15px 30px 0;;
     &:hover {
       color: $primaryColor;
     }
@@ -35,12 +36,41 @@
 
   &__btn {
     display: flex;
-    padding: 15px 30px;
+    padding-bottom: 15px;
     align-items: center;
     text-align: center;
     height: 100%;
+    border-bottom: 3px solid #fff;
+    color: #9e9e9e;
+    transition: 0.3s;
 
+    &:hover {
+      color: #555;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      height: 10px;
+
+      background-color: #000;
+    }
   }
+
+  &:active::before {
+    background-color: #000;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+
+
 
   &__icon {
     position: absolute;
@@ -102,6 +132,11 @@
       }
     }
   }
+}
+
+.current {
+  border-bottom: 3px solid $primaryColor;
+  color: #555;
 }
 
 @media (max-width:970px) {
